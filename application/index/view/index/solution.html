@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>集成商模板--模板预览</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="author" content="集成商模板" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="baidu-site-verification" content="DiRYNrTCNs" />
+    <meta name="baidu-site-verification" content="DCHaExB26v" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/head_common_top.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/iconfont.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.SuperSlide.js"></script>
+</head>
+    <body>
+    {volist name="title" id="ti"}
+        <!--模板头部 begin-->
+        <div class="head" id="head">
+            <div class="head_main clearfix">
+                {include file="comment/top"}
+                <!--导航 begin-->
+                <div class="nav">
+                    <ul class="nav_ul clearfix">
+                        <li class="nav_li">
+                            <a href="/index">首 页</a>
+                        </li>
+                        <li class="nav_li">
+                            <a href="/about">关于我们</a>
+                        </li>
+                        <li class="nav_li">
+                            <a href="/product">集成商机器人</a>
+                        </li>
+                        <li class="nav_li cur">
+                            <a href="/solution">解决方案</a>
+                        </li>
+                        <li class="nav_li">
+                            <a href="/news">新闻资讯</a>
+                        </li>
+                        <li class="nav_li">
+                            <a href="/recruitment">人才招聘</a>
+                        </li>
+                        <li class="nav_li">
+                            <a href="/contact">联系我们</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--导航 end-->
+            </div>
+        </div>
+        <!--模板头部 end-->
+        <!--解决方案-->
+        <section class="solution clearfix">
+            <div id="integrator_tab">
+                <div class="integrator_tab_content clearfix">
+                    <dl class="integrator_tab_resault clearfix">
+                        <dt>{$ti.condition}</dt>
+                        <dd>
+                            {if condition="$pass['app_name'] neq ''"}
+                            <a type="group" {if condition="$request['pid'] eq 0 AND $request['pids'] eq 0"} href="/solution" {else /}  href="/solution/0/{$request.pid}/{$request.pids}" {/if}>
+                                <p class="qcdg">{$pass['app_name']}</p><i class="iconfont">&#xe611;</i>
+                            </a>
+                            {/if}
+                            {if condition="$pass['brand_name'] neq ''"}
+                            <a type="group" {if condition="$request['id'] eq 0  AND $request['pids'] eq 0"} href="/solution" {else /}   href="/solution/{$request.id}/0/{$request.pids}" {/if}>
+                                <p class="qcdg">{$pass['brand_name']}</p><i class="iconfont">&#xe611;</i>
+                            </a>
+                            {/if}
+                            {if condition="$pass['industry_name'] neq ''"}
+                            <a type="group" {if condition="$request['id'] eq 0 AND $request['pid'] eq 0"} href="/solution" {else /} href="/solution/{$request.id}/{$request.pid}/0" {/if}>
+                                <p class="qcdg">{$pass['industry_name']}</p><i class="iconfont">&#xe611;</i>
+                            </a>
+                            {/if}
+                            {if condition="$pass['industry_name'] neq '' OR $pass['app_name'] neq '' OR $pass['brand_name'] neq ''"}
+                            <a href="/solution">
+                                <p class="qcqb">清除全部</p>
+                            </a>
+                            {/if}
+                        </dd>
+                    </dl>
+                    {volist name="data" id="da"}
+                    <dl class="integrator_tab_choice clearfix">
+                        <dt>{$da.title}</dt>
+                        <dd>
+                            {volist name="$da['data2']" id="d"}
+                            <li>
+                                {php}
+                                $url=[];
+                                if($d['pid']==1){
+                                    $url=['id'=>$d['id'],'pid'=>$request['pid'],'pids'=>$request['pids']];
+                                }elseif($d['pid']==2){
+                                    $url=['id'=>$request['id'],'pid'=>$d['id'],'pids'=>$request['pids']];
+                                }elseif($d['pid']==3){
+                                    $url=['id'=>$request['id'],'pid'=>$request['pid'],'pids'=>$d['id']];
+                                }
+                                if($url["id"]==0&&$url["pid"]==0&&$url["pids"]==0){
+                                    $this->redirect('solution');
+                                }
+                                {/php}
+                                <a {if condition="($pass['app_name'] eq $d['title']) OR ($pass['brand_name'] eq $d['title']) OR ($pass['industry_name'] eq $d['title'])"} style="background-color: #cc0000;color: #f1f4f5;" {/if} href="/solution/{$url.id}/{$url.pid}/{$url.pids}">{$d.title}</a>
+                            </li>
+                            {/volist}
+                        </dd>
+                    </dl>
+                    {/volist}
+                </div>
+            </div>
+            <div class="solution_list clearfix">
+                <ul class="clearfix">
+                    {volist name="list" id="li" empty="暂时没有数据！"}
+                    <li>
+                        <dl class="clearfix">
+                            <a href="/{$li.url}">
+                                <dt>
+                                    <img src="__PUBLIC__/{$li.img}" />
+                                    <p><span><i class="iconfont">&#xe610;</i></span></p>
+                                </dt>
+                                <dd>
+                                    <h2>{$li.title}</h2>
+                                    <h3 class="clearfix">
+                                    <span>{$li.more}</span>
+                                    <i class="iconfont">&#xe601;</i>
+                                </h3>
+                                </dd>
+                            </a>
+                        </dl>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+            <div style="text-align:right;">
+                {$list->render()}
+            </div>
+        </section>
+        <!--解决方案结束-->
+        <!--底部 begin-->
+        {include file="comment/footer"}
+        <!--底部 end-->
+        <!--tab切换-->
+        <script type="text/javascript">
+        $(function() {
+            jQuery(".solution_content").slide({});
+        })
+        </script>
+        {/volist}
+    </body>
+</html>

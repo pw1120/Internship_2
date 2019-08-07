@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>集成商模板--模板预览</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="author" content="集成商模板" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="baidu-site-verification" content="DiRYNrTCNs" />
+    <meta name="baidu-site-verification" content="DCHaExB26v" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/head_common_top.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/iconfont.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.SuperSlide.js"></script>
+</head>
+<body>
+{volist name="title" id="ti"}
+    <!--模板头部 begin-->
+    <div class="head" id="head">
+        <div class="head_main clearfix">
+			{include file="comment/top"}
+            <!--导航 begin-->
+			<div class="nav">
+				<ul class="nav_ul clearfix">
+					<li class="nav_li">
+						<a href="/index">首 页</a>
+					</li>
+					<li class="nav_li">
+						<a href="/about">关于我们</a>
+					</li>
+					<li class="nav_li">
+						<a href="/product">集成商机器人</a>
+					</li>
+					<li class="nav_li">
+						<a href="/solution">解决方案</a>
+					</li>
+					<li class="nav_li">
+						<a href="/news">新闻资讯</a>
+					</li>
+					<li class="nav_li cur">
+						<a href="/recruitment">人才招聘</a>
+					</li>
+					<li class="nav_li">
+						<a href="/contact">联系我们</a>
+					</li>
+				</ul>
+            </div>
+            <!--导航 end-->
+        </div>
+    </div>
+    <!--模板头部 end-->
+    <!--工作列表-->
+    <section class="jobs clearfix">
+        <ul class="newlist_type clearfix">
+            <span>{$ti.type}</span>
+			{volist name="indexes" id="ind"}
+            <li><a {if condition="$ind['type'] eq $type"} style="background-color: #cc0000;color: #f1f4f5;" {/if} href="/recruitment/{$ind.type}" name="type" >{$ind.type}</a></li>
+			{/volist}
+        </ul>
+        <ul class="jobslist clearfix">
+			{volist name="list" id="li"}
+            <li>
+                <a href="/{$li.url}/{$li.id}" class="clearfix">
+                    <dl>
+                        <dt>
+                            <h2>
+								<span>{$li.type}</span>
+								<label>{$li.work}</label>
+							</h2>
+							<h3>
+								<span>{$li.salary}</span>
+								<span>{$li.experience}</span>
+								<span>{$li.education}</span>
+							</h3>
+						</dt>
+						<dd>
+							<span><label>{$li.data}发布</label></span>
+							<p>{$li.apply}<p>
+						</dd>
+					</dl>
+				</a>
+			</li>
+			{/volist}
+		</ul>
+	</section>
+	<!--工作列表结束-->
+	<!--底部 begin-->
+	{include file="comment/footer"}
+    <!--底部 end-->
+{/volist}
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ThinkPHP5.0后台管理界面</title>
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="__PUBLIC__/style/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="__PUBLIC__/style/weather-icons.css" rel="stylesheet">
+    <link id="beyond-link" href="__PUBLIC__/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/style/demo.css" rel="stylesheet">
+    <link href="__PUBLIC__/style/typicons.css" rel="stylesheet">
+    <link href="__PUBLIC__/style/animate.css" rel="stylesheet">
+</head>
+<body>
+	{include file="common/top"}
+	<div class="main-container container-fluid">
+		<div class="page-container">
+            {include file="common/left"}
+            <div class="page-content">
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/admin">系统</a>
+                        </li>
+                        <li class="active">首页信息管理</li>
+                        <li>
+                        <a href="/cate/case_lst">解决方案</a>
+                        </li>
+                        <li class="active">添加方案</li>
+                    </ul>
+                </div>
+                <div class="page-body">
+<div class="row">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="widget">
+            <div class="widget-header bordered-bottom bordered-blue">
+                <span class="widget-caption">新增方案</span>
+            </div>
+            <div class="widget-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" enctype="multipart/form-data" action="" method="post">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">方案名称：</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" required="" id="name" placeholder="" name="name"  type="text">
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">网页-1：</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" value="solution_show"  id="web_1" placeholder="" name="web_1"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">图片-1：</label>
+                            <div class="col-sm-6">
+                                <input id="img_1" placeholder="" name="img_1" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">网页-2：</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" value="solution_show"  id="web_2" placeholder="" name="web_2"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">图片-2：</label>
+                            <div class="col-sm-6">
+                                <input id="img_2" placeholder="" name="img_2" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">网页-3：：</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" value="solution_show"  id="web_3" placeholder="" name="web_3"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">图片-3：</label>
+                            <div class="col-sm-6">
+                                <input id="img_3" placeholder="" name="img_3" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">网页-4：</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" value="solution_show"  id="web_4" placeholder="" name="web_4"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">图片-4：</label>
+                            <div class="col-sm-6">
+                                <input id="img_4" placeholder="" name="img_4" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">网页-5：</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" value="solution_show"  id="web_5" placeholder="" name="web_5"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">图片-5：</label>
+                            <div class="col-sm-6">
+                                <input id="img_5" placeholder="" name="img_5" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">网页-6：</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" value="solution_show"  id="web_6" placeholder="" name="web_6"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">图片-6：</label>
+                            <div class="col-sm-6">
+                                <input id="img_6" placeholder="" name="img_6" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">网页-7：</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" value="solution_show" id="web_7" placeholder="" name="web_7"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">图片-7：</label>
+                            <div class="col-sm-6">
+                                <input id="img_7" placeholder="" name="img_7" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">网页-8：</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" value="solution_show" id="web_8" placeholder="" name="web_8"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">图片-8：</label>
+                            <div class="col-sm-6">
+                                <input id="img_8" placeholder="" name="img_8" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default">添加信息</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+		</div>
+	</div>
+    <script src="__PUBLIC__/style/jquery_002.js"></script>
+    <script src="__PUBLIC__/style/bootstrap.js"></script>
+    <script src="__PUBLIC__/style/jquery.js"></script>
+    <script src="__PUBLIC__/style/beyond.js"></script>
+</body></html>

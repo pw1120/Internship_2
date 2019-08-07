@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>集成商模板--模板预览</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="author" content="集成商模板" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="baidu-site-verification" content="DiRYNrTCNs" />
+    <meta name="baidu-site-verification" content="DCHaExB26v" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/head_common_top.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/iconfont.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.SuperSlide.js"></script>
+<!--    <script type="text/javascript">-->
+<!--        function reset() {-->
+<!--            // document.getElementById('g_username').value = '';-->
+<!--            // document.getElementById('g_tel').value = '';-->
+<!--            document.getElementById('g_content').value = '';-->
+<!--        }-->
+<!--    </script>-->
+</head>
+<body>
+    <!--模板头部 begin-->
+    <div class="head" id="head">
+        <div class="head_main clearfix">
+            {include file="comment/top"}
+            <!--导航 begin-->
+            <div class="nav">
+                <ul class="nav_ul clearfix">
+                    <li class="nav_li">
+                        <a href="/index">首 页</a>
+                    </li>
+                    <li class="nav_li">
+                        <a href="/about">关于我们</a>
+                    </li>
+                    <li class="nav_li">
+                        <a href="/product">集成商机器人</a>
+                    </li>
+                    <li class="nav_li">
+                        <a href="/solution">解决方案</a>
+                    </li>
+                    <li class="nav_li">
+                        <a href="/news">新闻资讯</a>
+                    </li>
+                    <li class="nav_li">
+                        <a href="/recruitment">人才招聘</a>
+                    </li>
+                    <li class="nav_li cur">
+                        <a href="/contact">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+            <!--导航 end-->
+        </div>
+    </div>
+    <!--模板头部 end-->
+    <!--联系我们-->
+    <div class="map" id="dituContent"></div>
+    <section class="contact clearfix">
+        <div class="contact_top">
+            <dl>
+                <dt>
+                    {volist name="cleft" id="cl"}
+                    <h1>{$cl.hello}</h1>
+                    {$cl.content}
+                    <h2>{$cl.contact}</h2>
+                    <ul>
+                        <li><small>联系人：{$cl.name}</small></li>
+                        <li><small>联系电话：{$cl.number_1}</small></li>
+                        <li><small>联系电话：{$cl.number_2}</small></li>
+                        <li><small>传真：{$cl.fax}</small></li>
+                        <li><small>地址：{$cl.address}</small></li>
+                    </ul>
+                    {/volist}
+                </dt>
+                <dd>
+                    <ol class="common_form">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <li>
+                                <input id="g_username" name="name" class="form_text" maxlength="100" placeholder="姓名" type="text">
+                            </li>
+                            <li>
+                                <input id="g_tel" name="number" class="form_text" maxlength="100" placeholder="电话" type="text">
+                            </li>
+                            <li>
+                                <textarea id="g_content" class="form_textarea" name="message" placeholder="留言"></textarea>
+                            </li>
+                            <li>
+                                <input class="form_submit" value="提交留言" type="submit">
+                                <input class="form_submit" value="重置留言" type="reset">
+                                <input id="verifycode" class="form_text_verifycode" name="code" type="text" size="4" maxlength="4" />
+                                <img style="float:left; cursor:pointer;width: 110px;height: 50px;" id="vcode" src="{:captcha_src()}" alt="验证码" border="1" title="" onclick="this.src='{:captcha_src()}?'+Math.random();">
+                            </li>
+                            <input type="hidden" name="token" value="" />
+                        </form>
+                    </ol>
+                </dd>
+            </dl>
+        </div>
+    </section>
+    <!--联系我们结束-->
+    <!--底部 begin-->
+    {include file="comment/footer"}
+    <!--底部 end-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=q583lUr0YGUOX9BBqLBzhPrqs2b3TXho"></script>
+    <script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("dituContent");
+    var point = new BMap.Point(121.331582, 31.297793);
+    var marker = new BMap.Marker(point);  // 创建默认标注
+    map.centerAndZoom(point, 15);
+    var top_left_navigation = new BMap.NavigationControl();
+    map.addControl(top_left_navigation);
+    var opts = {
+      width : 200,     // 信息窗口宽度
+      height: 100,     // 信息窗口高度
+      title : "公司名称"  // 信息窗口标题
+    }
+    var infoWindow = new BMap.InfoWindow("地址：上海市嘉定区银翔路515号", opts);  // 创建信息窗口对象 
+    marker.addEventListener("click", function(){          
+        map.openInfoWindow(infoWindow,point); //开启信息窗口
+    });
+
+    var myGeo = new BMap.Geocoder();// 创建地址解析器实例
+    var add = "上海市浦东新区东方明珠"//**************从后台获取地理位置**************
+    myGeo.getPoint(add, function(point){
+        if (point) {
+            map.centerAndZoom(point, 16);
+            var marker = new BMap.Marker(point);
+            map.addOverlay(marker);
+            marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+        }else{
+            alert("您选择的地址没有解析到结果!");
+        }
+    }, "上海市");
+    </script>
+</body>
+</html>

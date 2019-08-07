@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ThinkPHP5.0后台管理界面</title>
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="__PUBLIC__/style/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="__PUBLIC__/style/weather-icons.css" rel="stylesheet">
+    <link id="beyond-link" href="__PUBLIC__/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/style/demo.css" rel="stylesheet">
+    <link href="__PUBLIC__/style/typicons.css" rel="stylesheet">
+    <link href="__PUBLIC__/style/animate.css" rel="stylesheet">
+    <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+{include file="common/top"}
+<div class="main-container container-fluid">
+    <div class="page-container">
+        {include file="common/left"}
+        <div class="page-content">
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="/admin">系统</a>
+                    </li>
+                    <li class="active">新闻列表</li>
+                    <li>
+                        <a href="/news/thi_lst">新闻列表</a>
+                    </li>
+                    <li class="active">添加新闻</li>
+                </ul>
+            </div>
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">添加新闻</span>
+                            </div>
+                            <div class="widget-body">
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" enctype="multipart/form-data" action="" method="post">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">新闻名称：</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="title" placeholder="" name="title"  type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">信息链接：</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" value="news_show" id="url" placeholder="" name="url"  type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">新闻类型：</label>
+                                            <div class="col-sm-6">
+                                                <select name="type">
+                                                    <option value="请选择">请选择</option>
+                                                    {volist name="indexes" id="ind"}
+                                                    {if condition="$ind['id'] neq 1"}
+                                                    <option value ="{$ind.type}">{$ind.type}</option>
+                                                    {/if}
+                                                    {/volist}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">新闻内容：</label>
+                                            <div class="col-sm-6">
+                                                <textarea id="content" name="content"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="margin-top:15px; " class="col-sm-2 control-label no-padding-right">新闻图片：</label>
+                                            <div class="col-sm-6">
+                                                <input style="float: left;margin-top:20px; " id="img" placeholder="" name="img" type="file">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button style="margin-left: 230px;" type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/style/jquery_002.js"></script>
+<script src="__PUBLIC__/style/bootstrap.js"></script>
+<script src="__PUBLIC__/style/jquery.js"></script>
+<script src="__PUBLIC__/style/beyond.js"></script>
+<script type="text/javascript">
+    UE.getEditor('content',{initialFrameWidth:561,initialFrameHeight:200,});
+</script>
+</body></html>

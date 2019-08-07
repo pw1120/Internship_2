@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>集成商模板--模板预览</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="author" content="集成商模板" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="baidu-site-verification" content="DiRYNrTCNs" />
+    <meta name="baidu-site-verification" content="DCHaExB26v" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <link rel="stylesheet" type="text/css" href="../css/head_common_top.css">
+    <link rel="stylesheet" type="text/css" href="../css/layout.css">
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/jquery.SuperSlide.js"></script>
+    
+  
+</head>
+
+<body>
+ 
+    
+    
+    <!--模板头部 begin-->
+    <div class="head" id="head">
+        <div class="head_main clearfix">
+            <!--logo begin-->
+            <div class="logo clearfix">
+                <a class="logo_a" href="Javascript:void(0);"><img src="../images/logo.png" alt="logo图片" /></a>
+                <dl>
+                    <dt>
+                        <h2>那智旗舰店</h2></dt>
+                    <dd class="clearfix">
+                        <a class="type_a" href="javascript:void(0);">集成商直销</a>
+                        
+                    </dd>
+                </dl>
+            </div>
+            <!--logo end-->
+            <!--导航 begin-->
+            <div class="nav">
+                <ul class="nav_ul clearfix">
+                    <li class="nav_li">
+                        <a href="index.html">首 页</a>
+                    </li>
+                    <li class="nav_li">
+                        <a href="about.html">关于我们</a>
+                    </li>
+                    <li class="nav_li">
+                        <a href="product.html">集成商机器人</a>
+                    </li>
+                    <li class="nav_li">
+                        <a href="solution.html">解决方案</a>
+                    </li>
+                    <li class="nav_li">
+                        <a href="news.html">新闻资讯</a>
+                    </li>
+                    <li class="nav_li">
+                        <a href="recruitment.html">人才招聘</a>
+                    </li>
+                    <li class="nav_li cur">
+                        <a href="contact.html">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+            <!--导航 end-->
+        </div>
+    </div>
+    <!--模板头部 end-->
+    <!--联系我们-->
+    <div class="map" id="dituContent"></div>
+    <section class="contact clearfix">
+        <div class="contact_top">
+            <dl>
+                <dt>
+                    <h1>您好HELLO!</h1>
+                    <p>欢迎您来到那智机器人有限公司，若您用留言或使用以下方式联系我们，我们将尽快给你回复，并为您提供最真诚的培训服务，谢谢。</p>
+                    <h2>联系方式</h2>
+                    <ul>
+                        <li><small>联系人：黄小姐</small></li>
+                        <li><small>联系电话：400-0755-211</small></li>
+                        <li><small>联系电话：0755-86681000</small></li>
+                        <li><small>传真：0755-86681000</small></li>
+                        <li><small>地址：深圳市南山区科技园航盛科技大厦7楼</small></li>
+                    </ul>
+                </dt>
+                <dd>
+                    <ol class="common_form">
+                        <form>
+                            <li>
+                                <input id="g_username" name="name" class="form_text" maxlength="100" placeholder="姓名" type="text">
+                            </li>
+                            <li>
+                                <input id="g_tel" name="mobile" class="form_text" maxlength="100" placeholder="电话" type="text">
+                            </li>
+                            <li>
+                                <textarea id="g_content" class="form_textarea" name="content" placeholder="留言"></textarea>
+                            </li>
+                            <li>
+                                <input class="form_submit" value="提交留言" type="button">
+                                <input class="form_submit" value="重置留言" type="reset">
+                                <input id="verifycode" class="form_text_verifycode" name="captcha" type="text" size="4" maxlength="4" />
+                                <img id="vcode" src="captcha.php" alt="验证码" border="1" title="">
+                            </li>
+                            <input type="hidden" name="token" value="" />
+                        </form>
+                    </ol>
+                </dd>
+            </dl>
+        </div>
+    </section>
+    <!--联系我们结束-->
+    <!--底部 begin-->
+   
+        <div class="foot_prin">
+             <p>版权所有©川崎2014-2016保留所有权 </p>
+             <p>技术支持：机器人在线 </p>
+        </div>
+    </div>
+    <!--底部 end-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=q583lUr0YGUOX9BBqLBzhPrqs2b3TXho"></script>
+    <script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("dituContent");
+    var point = new BMap.Point(121.331582, 31.297793);
+    var marker = new BMap.Marker(point);  // 创建默认标注
+    map.centerAndZoom(point, 15);
+    var top_left_navigation = new BMap.NavigationControl();
+    map.addControl(top_left_navigation);
+    var opts = {
+      width : 200,     // 信息窗口宽度
+      height: 100,     // 信息窗口高度
+      title : "公司名称"  // 信息窗口标题
+    }
+    var infoWindow = new BMap.InfoWindow("地址：上海市嘉定区银翔路515号", opts);  // 创建信息窗口对象 
+    marker.addEventListener("click", function(){          
+        map.openInfoWindow(infoWindow,point); //开启信息窗口
+    });
+
+    var myGeo = new BMap.Geocoder();// 创建地址解析器实例
+    var add = "上海市浦东新区东方明珠"//**************从后台获取地理位置**************
+    myGeo.getPoint(add, function(point){
+        if (point) {
+            map.centerAndZoom(point, 16);
+            var marker = new BMap.Marker(point);
+            map.addOverlay(marker);
+            marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+        }else{
+            alert("您选择的地址没有解析到结果!");
+        }
+    }, "上海市");
+    </script>
+</body>
+
+</html>

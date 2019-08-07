@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>集成商模板--模板预览</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="author" content="集成商模板" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="baidu-site-verification" content="DiRYNrTCNs" />
+    <meta name="baidu-site-verification" content="DCHaExB26v" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/head_common_top.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/iconfont.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.SuperSlide.js"></script>
+</head>
+<body>
+{volist name="title" id="ti"}
+<!--模板头部 begin-->
+<div class="head" id="head">
+    <div class="head_main clearfix">
+        {include file="comment/top"}
+        <!--导航 begin-->
+        <div class="nav">
+            <ul class="nav_ul clearfix">
+                <li class="nav_li cur">
+                    <a href="/index">首 页</a>
+                </li>
+                <li class="nav_li">
+                    <a href="/about">关于我们</a>
+                </li>
+                <li class="nav_li">
+                    <a href="/product">集成商机器人</a>
+                </li>
+                <li class="nav_li">
+                    <a href="/solution">解决方案</a>
+                </li>
+                <li class="nav_li">
+                    <a href="/news">新闻资讯</a>
+                </li>
+                <li class="nav_li">
+                    <a href="/recruitment">人才招聘</a>
+                </li>
+                <li class="nav_li">
+                    <a href="/contact">联系我们</a>
+                </li>
+            </ul>
+        </div>
+        <!--导航 end-->
+    </div>
+</div>
+<!--模板头部 end-->
+    <!--banner轮播 begin-->
+    <div id="banner" class="banner">
+        <div class="hd">
+            <ul>
+                {volist name="data" id="da"}
+                <li>{$da.id}</li>
+                {/volist}
+            </ul>
+        </div>
+        <div class="bd">
+            <ul>
+                {volist name="data" id="da"}
+                <li>
+                    <a href="javascript:void(0)"><img src="__PUBLIC__/{$da.img}" alt="banner图1" /></a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        <a class="prev iconfont" href="javascript:void(0)">&#xe600;</a>
+        <a class="next iconfont" href="javascript:void(0)">&#xe601;</a>
+    </div>
+    <!--banner轮播 end-->
+    <!--解决方案 begin-->
+    <div class="solution">
+        <div class="common_t">
+            <h3>{$ti.solution}</h3>
+            <div><span></span></div>
+        </div>
+        <div class="solution_content">
+            <div class="hd">
+                <ul>
+                    {volist name="solu" id="so"}
+                    <li><a href="javascript:void(0);">{$so.name}</a></li>
+                    {/volist}
+                </ul>
+            </div>
+            <div class="bd">
+                {volist name="solu" id="so"}
+                <ul class="solution_bd_ul flexBox">
+                    <li>
+                        <a href="{:url($so['web_1'])}">
+                        <div class="li_div">
+                                <img src="__PUBLIC__/{$so.img_1}" />
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:url($so['web_2'])}">
+                            <div class="li_div">
+                                <img src="__PUBLIC__/{$so.img_2}" />
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:url($so['web_3'])}">
+                            <div class="li_div">
+                                <img src="__PUBLIC__/{$so.img_3}" />
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:url($so['web_4'])}">
+                            <div class="li_div">
+                                <img src="__PUBLIC__/{$so.img_4}" />
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:url($so['web_5'])}">
+                            <div class="li_div">
+                                <img src="__PUBLIC__/{$so.img_5}" />
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:url($so['web_6'])}">
+                            <div class="li_div">
+                                <img src="__PUBLIC__/{$so.img_6}" />
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:url($so['web_7'])}">
+                            <div class="li_div">
+                                <img src="__PUBLIC__/{$so.img_7}" />
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:url($so['web_8'])}">
+                            <div class="li_div">
+                                <img src="__PUBLIC__/{$so.img_8}" />
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                {/volist}
+            </div>
+        </div>
+    </div>
+    <!--解决方案 end-->
+    <!--公司简介 begin-->
+    <div class="about">
+        {volist name="introdution" id="int"}
+        <div class="about_content">
+            <div class="txt">
+                <div class="title">
+                    <h2>{$int.title}</h2>
+                    <span>{$int.translate}</span>
+                </div>
+                {$int.content}
+                <a class="more" href="{:url($int['url'])}">{$int.more}</a>
+            </div>
+        </div>
+        <div class="usImg">
+            <img src="__PUBLIC__/{$int.img}" alt="公司图片" />
+        </div>
+        {/volist}
+    </div>
+    <!--公司简介 end-->
+    <!--新闻 begin-->
+    <div class="news">
+        <div class="common_t">
+            <h3>{$ti.new}</h3>
+            <div><span></span></div>
+        </div>
+        <div class="news_content clearfix">
+            {volist name="news" id="new"}
+            <div class="left">
+                <img src="__PUBLIC__/{$new.img}" alt="新闻图片" />
+            </div>
+            <div class="right">
+                <h2><a href="javascript:void(0);">{$new.title}</a><span>{$new.name}</span></h2>
+                {$new.content}
+                <a class="more" href="/{$new.url}">{$new.text}</a>
+            </div>
+            {/volist}
+        </div>
+    </div>
+    <!--新闻 end-->
+    <!--专家 begin-->
+    <div class="experts">
+        <div class="common_t">
+            <h3>{$ti.expert}</h3>
+            <div><span></span></div>
+        </div>
+        <div class="experts_content">
+            <ul class="experts_list flexBox">
+                {volist name="expert" id="exp"}
+                <li>
+                    <dl>
+                        <dt>
+                            <img src="__PUBLIC__/{$exp.img}" alt="专家图片" />
+                        </dt>
+                        <dd class="clearfix">
+                            <img class="codeimg" src="__PUBLIC__/{$exp.code}" alt="二维码" />
+                            <h3>{$exp.name}</h3>
+                            <p>{$exp.profession}</p>
+                            <a href="javascript:void(0);">{$exp.consultation}</a>
+                        </dd>
+                    </dl>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+    <!--专家 end-->
+    <!--底部 begin-->
+    {include file="comment/footer"}
+    <!--底部 end-->
+    <!--banner 轮播-->
+    <script type="text/javascript">
+    $(function() {
+        jQuery(".banner").slide({
+            mainCell: ".bd ul",
+            effect: "fold",
+            autoPlay: true
+        });
+        jQuery(".solution_content").slide({});
+    })
+    </script>
+{/volist}
+</body>
+</html>
